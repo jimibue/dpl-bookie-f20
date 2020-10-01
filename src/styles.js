@@ -3,6 +3,7 @@ export const COLORS = {
   WHITE: "#ffffff",
   BLACK: "#333333",
   PRIMARY: "#6E4555",
+  // PRIMARY: "green",
   SECONDARY: "#F5E3E0",
   ALERT: "#D282A6",
 };
@@ -14,6 +15,6 @@ export const PADDINGS = {
 };
 
 export const BORDER_RADIUS = {
-  DEFAULT: "4px",
+  DEFAULT: "5px",
   LARGE: "12px",
 };

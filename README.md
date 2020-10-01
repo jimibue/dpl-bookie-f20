@@ -41,6 +41,8 @@ Chat Feature
 
 # models
 
+https://stackoverflow.com/questions/14845295/rails-two-to-many-relationship
+
 Team model
 name: string
 city: string
