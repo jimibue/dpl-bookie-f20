@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Starting a project
 
-## Available Scripts
+- having a thought out database design
+- having UX figured out( basic user flows, wireframes), UI less important
 
-In the project directory, you can run:
+  - UX user flows, what links, wire frame, how the app works
+  - UI - Color, fonts, animation, change later in the developement, pretty easily
 
-### `yarn start`
+- A clear defined api
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Before you start the more you can gather requirments and 'user stories' the more time you will save
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- low hanging fruit
+<!-- <!-- Alice  -->
 
-### `yarn test`
+MVP - Minimal Viable Product - what is the bare minium for us to release, consider completed
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. As Alice I want to be able to login to dpl-bookie.com and see this weeks gamese
 
-### `yarn build`
+- Use 3rd party api to pull game data/spread (limit to football)
+- or own model, football, marble racing betting may not have an api _ Nice To Have_
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- show time of Game
+- the spread
+- over under
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+2. Profile Info Tab
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- add name
+- add balance
+- history _ Nice To Have_
 
-### `yarn eject`
+3. Bet page where we can enter the amount to bet
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- Nice To Have -->
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+\*Change Password - requires mailers setup, and not as esy with devise_token_auth
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+As Alice I want to be able follow teams
+Chat Feature
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# models
 
-## Learn More
+Team model
+name: string
+city: string
+record: string
+mascot: string
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<!-- Model hasManyTrough
+team_id
+matchup_id:
+end -->
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Matchup # third party api
+home_team_id: team.id
+away_team_id: team.id
+spread:
+over_under:
+result:
+game_data: datetime
 
-### Code Splitting
+User
+has_many bets
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Bet model
+user_id
+amount
+matchup_id
